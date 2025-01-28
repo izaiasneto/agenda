@@ -14,6 +14,10 @@ Siga os passos abaixo para configurar o projeto localmente:
    ```bash
    npm install
 
+2. **Execute o comando para monitorar alterações nos arquivos do projeto e recompilá-los automaticamente:**
+   ```bash
+   npm run dev
+
 3. **Crie um arquivo .env e adicione a variável de ambiente para a conexão com o MongoDB**
    ```bash
    CONNECTIONSTRING=
