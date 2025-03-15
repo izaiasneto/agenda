@@ -10,7 +10,11 @@
 
             <%- include('includes/messages')  %>
 
+            <% if(contact._id ) { %>
+            <form action="/contact/update/<%= contact._id %>" method="POST" class="d-grid gap-3 mt-auto">
+            <% } else { %>
             <form action="/contact/register" method="POST" class="d-grid gap-3 mt-auto">
+            <% } %>
                 <input type="hidden" name="_csrf" value=<%= csrfToken %>>
                 <div class="form-group">
                   <label>Name</label>
