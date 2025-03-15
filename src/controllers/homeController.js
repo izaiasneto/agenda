@@ -1,9 +1,8 @@
-exports.index = (req, res) => {
-  res.render('index');
-  return;
+const Contact = require('../models/ContactModel');
+
+exports.index = async (req, res) => {
+  const contact = new Contact();
+  const contacts = await contact.all();
+  res.render('index', { contacts });
 };
 
-exports.trataPost = (req, res) => {
-  res.send(req.body);
-  return;
-};

@@ -57,3 +57,12 @@ exports.update = async (req, res) => {
         return res.render('404');
     }
 }
+
+exports.delete = async (req, res) => {
+    if(!req.params.id) return res.render('404');
+    const contactModel = new Contact();
+    await contactModel.delete(req.params.id);
+
+    req.flash('success', 'Contact has been deleted successfully');
+    req.session.save(() => res.redirect('back'));
+}

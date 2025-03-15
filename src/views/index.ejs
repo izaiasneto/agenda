@@ -10,38 +10,36 @@
 
             <%- include('includes/messages')  %>
             
+            <% if(contacts.length > 0) { %>
             <div class="responsive-table">
                 <table class="table my-3">
                     <thead>
                         <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">First</th>
-                          <th scope="col">Last</th>
-                          <th scope="col">Handle</th>
+                          <th scope="col">First Name</th>
+                          <th scope="col">Last Name</th>
+                          <th scope="col">Phone</th>
+                          <th scope="col">Email</th>
+                          <th scope="col"></th>
+                          <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
+                    <% contacts.forEach( contact => { %>
                         <tr>
-                            <td>Luiz</td>
-                            <td>Otávio</td>
-                            <td>87423892098</td>
-                            <td>izaiasmneto@gmail.com</td>
+                            <td><%= contact.name %></td>
+                            <td><%= contact.lastname %></td>
+                            <td><%= contact.phone %></td>
+                            <td><%= contact.email %></td>
+                            <td><a href="/contact/<%= contact.id %>">Edit</a></td>
+                            <td><a class="text-danger" href="/contact/delete/<%= contact.id %>">Delete</a></td>
                         </tr>
-                        <tr>
-                            <td>Luiz</td>
-                            <td>Otávio</td>
-                            <td>87423892098</td>
-                            <td>izaiasmneto@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td>Luiz</td>
-                            <td>Otávio</td>
-                            <td>87423892098</td>
-                            <td>izaiasmneto@gmail.com</td>
-                        </tr>
+                    <% }); %>
                     </tbody>
                 </table>
             </div>
+            <% } else { %>
+                <p class="text-center lead">Don't exists contacts</p>
+            <% } %>
         </div>
 
         <div class="col-lg-2"></div>

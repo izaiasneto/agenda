@@ -1,4 +1,5 @@
 exports.middlewareGlobal = (req, res, next) => {
+  res.setHeader("Content-Security-Policy", "script-src 'self' https://cdn.jsdelivr.net");
   res.locals.errors = req.flash('errors');
   res.locals.success = req.flash('success');
   res.locals.user = req.session.user;
